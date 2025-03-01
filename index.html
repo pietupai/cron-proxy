@@ -28,8 +28,9 @@
                             .catch(error => {
                                 console.error('Error:', error);
                             });
-                }, interval * 1000);
-            });
+                    }, interval * 1000);
+                });
+            }
         }
 
         window.onload = scheduleRequests;
@@ -37,7 +38,7 @@
 </head>
 <body>
     <h1>Cron Proxy API</h1>
-    <form action="/" method="get" onsubmit="event.preventDefault(); window.location.href=`/?url=${encodeURIComponent(document.getElementById('url').value)}&intervals=${document.getElementById('intervals').value.split(' ').join(',')}`;">
+    <form action="/" method="get" onsubmit="event.preventDefault(); window.location.href=`/?url=${encodeURIComponent(document.getElementById('url').value)}&intervals=${document.getElementById('intervals').value.split(',').join(',')}`;">
         <label for="url">URL:</label>
         <input type="text" id="url" name="url" required>
         <br>
