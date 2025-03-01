@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cron Proxy API</title>
+    <script>
+        function scheduleRequests() {
+            const url = document.getElementById('url').value;
+            const intervals = document.getElementById('intervals').value.split(' ').join(',');
+
+            fetch(`/schedule?url=${encodeURIComponent(url)}&intervals=${intervals}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').innerText = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Cron Proxy API</h1>
+    <form onsubmit="event.preventDefault(); scheduleRequests();">
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" required>
+        <br>
+        <label for="intervals">Intervals (space-separated in seconds):</label>
+        <input type="text" id="intervals" name="intervals" required>
+        <br>
+        <button type="submit">Schedule Requests</button>
+    </form>
+    <p id="result"></p>
+</body>
+</html>
