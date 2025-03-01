@@ -25,10 +25,11 @@
                             .then(response => response.text())
                             .then(data => {
                                 console.log(`Request made at ${interval}s: ${data}`);
-                                document.getElementById('result').innerText += `Request made at ${interval}s: ${data}\n`;
+                                document.getElementById('result').innerText += `Request made at ${interval}s: ${data}\n\n`;
                             })
                             .catch(error => {
                                 console.error('Error:', error);
+                                document.getElementById('result').innerText += `Error at ${interval}s: ${error.message}\n\n`;
                             });
                     }, interval * 1000);
                 });
