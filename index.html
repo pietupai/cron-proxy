@@ -17,7 +17,7 @@
         function scheduleRequests() {
             const params = getQueryParams();
             if (params.url && params.intervals.length > 0) {
-                const proxyUrl = 'https://proxyserver2-sandy.vercel.app/api/proxy?url=' + encodeURIComponent(params.url);
+                const proxyUrl = 'https://proxyserver2-sandy.vercel.app/api/fetch-proxy?url=' + encodeURIComponent(params.url);
 
                 params.intervals.forEach(interval => {
                     setTimeout(() => {
