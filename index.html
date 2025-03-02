@@ -24,8 +24,8 @@
                         fetch(proxyUrl)
                             .then(response => response.text())
                             .then(data => {
-                                console.log(`[[]]Request made at ${interval}s: ${data}`);
-                                document.getElementById('result').innerText += `Request made at ${interval}s: ${data}\n\n`;
+                                console.log(`Request made at ${interval}s: ${data}`);
+                                document.getElementById('result').innerText += `[[]]Request made at ${interval}s: ${data}\n\n`;
                             })
                             .catch(error => {
                                 console.error('Error:', error);
